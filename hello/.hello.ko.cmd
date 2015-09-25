@@ -1,1 +1,1 @@
-cmd_/home/zjy/github/driver/hello_1/hello.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/zjy/github/driver/hello_1/hello.ko /home/zjy/github/driver/hello_1/hello.o /home/zjy/github/driver/hello_1/hello.mod.o
+cmd_/home/zjy/github/driver/hello/hello.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/zjy/github/driver/hello/hello.ko /home/zjy/github/driver/hello/hello.o /home/zjy/github/driver/hello/hello.mod.o

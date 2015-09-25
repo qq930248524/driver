@@ -1,2 +1,2 @@
-/home/zjy/github/driver/hello_1/hello.ko
-/home/zjy/github/driver/hello_1/hello.o
+/home/zjy/github/driver/hello/hello.ko
+/home/zjy/github/driver/hello/hello.o
