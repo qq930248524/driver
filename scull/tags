@@ -1,0 +1,64 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+KERNELDIR	Makefile	/^	KERNELDIR ?= \/lib\/modules\/$(shell uname -r)\/build$/;"	m
+NUM	scull.h	35;"	d
+PWD	Makefile	/^	PWD 	:=	$(shell pwd)$/;"	m
+SCULL_IOC_MAXNR	scull.h	48;"	d
+SCULL_MAJOR	scull.h	6;"	d
+SCULL_NR_DEVS	scull.h	10;"	d
+SCULL_QSET	scull.h	18;"	d
+SCULL_QUANTUM	scull.h	14;"	d
+TYPE	scull.h	34;"	d
+_SCULL_H_	scull.h	2;"	d
+__this_module	scull.mod.c	/^__visible struct module __this_module$/;"	v	typeref:struct:module
+__used	scull.mod.c	/^__used$/;"	v	file:
+__used	scull.mod.c	/^__used$/;"	v	typeref:struct:____versions	file:
+access_key	scull.h	/^    unsigned int access_key;$/;"	m	struct:scull_dev	access:public
+cdev	scull.h	/^    struct cdev cdev;$/;"	m	struct:scull_dev	typeref:struct:scull_dev::cdev	access:public
+data	scull.h	/^    struct scull_qset *data;$/;"	m	struct:scull_dev	typeref:struct:scull_dev::scull_qset	access:public
+data	scull.h	/^    void **data;$/;"	m	struct:scull_qset	access:public
+next	scull.h	/^    struct scull_qset *next;$/;"	m	struct:scull_qset	typeref:struct:scull_qset::scull_qset	access:public
+obj-m	Makefile	/^	obj-m := scull.o$/;"	m
+qset	scull.h	/^    int qset;$/;"	m	struct:scull_dev	access:public
+quantum	scull.h	/^    int quantum;$/;"	m	struct:scull_dev	access:public
+scull_cleanup_module	scull.c	/^module_exit(scull_cleanup_module);$/;"	v
+scull_cleanup_module	scull.c	/^void scull_cleanup_module(void)$/;"	f	signature:(void)
+scull_dev	scull.h	/^struct scull_dev{$/;"	s
+scull_dev::access_key	scull.h	/^    unsigned int access_key;$/;"	m	struct:scull_dev	access:public
+scull_dev::cdev	scull.h	/^    struct cdev cdev;$/;"	m	struct:scull_dev	typeref:struct:scull_dev::cdev	access:public
+scull_dev::data	scull.h	/^    struct scull_qset *data;$/;"	m	struct:scull_dev	typeref:struct:scull_dev::scull_qset	access:public
+scull_dev::qset	scull.h	/^    int qset;$/;"	m	struct:scull_dev	access:public
+scull_dev::quantum	scull.h	/^    int quantum;$/;"	m	struct:scull_dev	access:public
+scull_dev::sem	scull.h	/^    struct semaphore sem;$/;"	m	struct:scull_dev	typeref:struct:scull_dev::semaphore	access:public
+scull_dev::size	scull.h	/^    unsigned long size;$/;"	m	struct:scull_dev	access:public
+scull_devices	scull.c	/^struct scull_dev *scull_devices;$/;"	v	typeref:struct:scull_dev
+scull_follow	scull.c	/^struct scull_qset *scull_follow(struct scull_dev *dev,int n)$/;"	f	signature:(struct scull_dev *dev,int n)
+scull_fops	scull.c	/^struct file_operations scull_fops = {$/;"	v	typeref:struct:file_operations
+scull_init_module	scull.c	/^int scull_init_module(void)$/;"	f	signature:(void)
+scull_init_module	scull.c	/^module_init(scull_init_module);$/;"	v
+scull_ioctl	scull.h	/^int      scull_ioctl(struct inode *inode,struct file *filep,unsigned int cmd,unsigned long arg);$/;"	p	signature:(struct inode *inode,struct file *filep,unsigned int cmd,unsigned long arg)
+scull_llseek	scull.c	/^loff_t scull_llseek(struct file *filep, loff_t off, int whence)$/;"	f	signature:(struct file *filep, loff_t off, int whence)
+scull_llseek	scull.h	/^loff_t   scull_llseek(struct file *filep,loff_t off,int whence);$/;"	p	signature:(struct file *filep,loff_t off,int whence)
+scull_major	scull.c	/^int scull_major = SCULL_MAJOR;$/;"	v
+scull_minor	scull.c	/^int scull_minor = 0;$/;"	v
+scull_nr_devs	scull.c	/^int scull_nr_devs = SCULL_NR_DEVS;$/;"	v
+scull_open	scull.c	/^int scull_open(struct inode *inode,struct file *filep)$/;"	f	signature:(struct inode *inode,struct file *filep)
+scull_qset	scull.c	/^int scull_qset = SCULL_QSET;$/;"	v
+scull_qset	scull.h	/^struct scull_qset{$/;"	s
+scull_qset::data	scull.h	/^    void **data;$/;"	m	struct:scull_qset	access:public
+scull_qset::next	scull.h	/^    struct scull_qset *next;$/;"	m	struct:scull_qset	typeref:struct:scull_qset::scull_qset	access:public
+scull_quantum	scull.c	/^int scull_quantum = SCULL_QUANTUM;$/;"	v
+scull_read	scull.c	/^ssize_t scull_read(struct file *filep, char __user *buf, size_t count,loff_t *f_pos)$/;"	f	signature:(struct file *filep, char __user *buf, size_t count,loff_t *f_pos)
+scull_read	scull.h	/^ssize_t  scull_read(struct file *filep,char __user *buf, size_t count,loff_t *offp);$/;"	p	signature:(struct file *filep,char __user *buf, size_t count,loff_t *offp)
+scull_release	scull.c	/^int scull_release(struct inode *inode, struct file *filep)$/;"	f	signature:(struct inode *inode, struct file *filep)
+scull_setup_cdev	scull.c	/^static void scull_setup_cdev(struct scull_dev *dev,int index)$/;"	f	file:	signature:(struct scull_dev *dev,int index)
+scull_trim	scull.c	/^int scull_trim(struct scull_dev *dev)$/;"	f	signature:(struct scull_dev *dev)
+scull_trim	scull.h	/^int      scull_trim(struct scull_dev *dev);$/;"	p	signature:(struct scull_dev *dev)
+scull_write	scull.c	/^ssize_t scull_write(struct file *filep,const char __user *buf,size_t count,loff_t *f_pos)$/;"	f	signature:(struct file *filep,const char __user *buf,size_t count,loff_t *f_pos)
+scull_write	scull.h	/^ssize_t  scull_write(struct file *filep, const char __user *buff, size_t count,loff_t *offp);$/;"	p	signature:(struct file *filep, const char __user *buff, size_t count,loff_t *offp)
+sem	scull.h	/^    struct semaphore sem;$/;"	m	struct:scull_dev	typeref:struct:scull_dev::semaphore	access:public
+size	scull.h	/^    unsigned long size;$/;"	m	struct:scull_dev	access:public

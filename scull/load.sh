@@ -6,10 +6,9 @@ mode="664"
 /sbin/insmod ./$module.ko $* || exit 1
 rm -f /dev/${device}[0-3]
 
-major=$(awk "$2=="$module" {print $1}" /proc/devices)
+major=$(awk "\$2==\"$module\" {print \$1}" /proc/devices)
 
 echo $major
-mknod /dev/${device}0 c $major 0
-mknod /dev/${device}1 c $major 1
-mknod /dev/${device}2 c $major 2
-mknod /dev/${device}3 c $major 3
+for i in `seq 0 3`;do
+	mknod /dev/${device}$i c $major $i
+done

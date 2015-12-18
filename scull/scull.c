@@ -61,6 +61,7 @@ int scull_trim(struct scull_dev *dev)
 /* 若设备以写方式打开，它的长度截0，未锁信号量*/
 int scull_open(struct inode *inode,struct file *filep)
 {
+	printk(KERN_NOTICE "-----------open\n");
 	struct scull_dev *dev;
 	dev = container_of(inode->i_cdev,struct scull_dev,cdev);
 	filep->private_data = dev;
@@ -75,6 +76,7 @@ int scull_open(struct inode *inode,struct file *filep)
 
 int scull_release(struct inode *inode, struct file *filep)
 {
+	printk(KERN_NOTICE "-----------close\n");
 	return 0;
 }
 
@@ -102,6 +104,8 @@ struct scull_qset *scull_follow(struct scull_dev *dev,int n)
 
 ssize_t scull_read(struct file *filep, char __user *buf, size_t count,loff_t *f_pos)
 {
+	printk(KERN_NOTICE "-----------read\n");
+	printk(KERN_NOTICE "-----------read\nf_ops:%lld\n", buf, *f_pos);
 	struct scull_dev *dev = filep->private_data;
 	struct scull_qset *dptr;
 	int quantum = dev->quantum,qset = dev->qset;
@@ -109,8 +113,8 @@ ssize_t scull_read(struct file *filep, char __user *buf, size_t count,loff_t *f_
 	int item, s_pos, q_pos,rest;
 	ssize_t retval = 0;
 
-	if(down_interruptible(&dev->sem))
-		return -ERESTARTSYS;
+	//if(down_interruptible(&dev->sem))
+		//return -ERESTARTSYS;
 	if(*f_pos>=dev->size)
 		goto out;
 	if(*f_pos + count > dev->size)
@@ -136,12 +140,13 @@ ssize_t scull_read(struct file *filep, char __user *buf, size_t count,loff_t *f_
 	retval = count;
 	
 	out:
-	up(&dev->sem);
+	//up(&dev->sem);
 	return retval;
 }
 
 ssize_t scull_write(struct file *filep,const char __user *buf,size_t count,loff_t *f_pos)
 {
+	printk(KERN_NOTICE "-----------write:buf:%s\nf_ops:%lld\n", buf, *f_pos);
 	struct scull_dev *dev = filep->private_data;
 	struct scull_qset *dptr;
 	int quantum = dev->quantum,qset = dev->qset;
@@ -162,9 +167,15 @@ ssize_t scull_write(struct file *filep,const char __user *buf,size_t count,loff_
 	if(dptr == NULL)
 		goto out;
 	if(!dptr->data){
-		dptr->data[s_pos] = kmalloc(quantum,GFP_KERNEL);
-	if(!dptr->data[s_pos])
-		goto out;
+		dptr->data = kmalloc(qset*sizeof(char *),GFP_KERNEL);
+		if(!dptr->data)
+			goto out;
+		memset(dptr->data, 0, qset*sizeof(char *));
+	}
+	if(!dptr->data[s_pos]){
+		dptr->data[s_pos] = kmalloc(quantum, GFP_KERNEL);
+		if(!dptr->data[s_pos])
+			goto out;
 	}
 	
 	if(count > quantum - q_pos)
@@ -182,6 +193,7 @@ ssize_t scull_write(struct file *filep,const char __user *buf,size_t count,loff_
 
 	out:
 	//up(&dev->sem);
+	printk(KERN_NOTICE "-----------write0000\n");
 	return retval;
 }
 
@@ -255,6 +267,7 @@ static void scull_setup_cdev(struct scull_dev *dev,int index)
 
 int scull_init_module(void)
 {
+	printk(KERN_NOTICE "-----------init\n");
 	int result,i;
 	dev_t dev = 0;
 	
