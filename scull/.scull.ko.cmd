@@ -1,1 +1,1 @@
-cmd_/home/zjy/github/driver/scull/scull.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/zjy/github/driver/scull/scull.ko /home/zjy/github/driver/scull/scull.o /home/zjy/github/driver/scull/scull.mod.o
+cmd_/home/sda9/zjy/github/driver/scull/scull.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/sda9/zjy/github/driver/scull/scull.ko /home/sda9/zjy/github/driver/scull/scull.o /home/sda9/zjy/github/driver/scull/scull.mod.o

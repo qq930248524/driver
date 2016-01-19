@@ -104,14 +104,14 @@ struct scull_qset *scull_follow(struct scull_dev *dev,int n)
 
 ssize_t scull_read(struct file *filep, char __user *buf, size_t count,loff_t *f_pos)
 {
-	printk(KERN_NOTICE "-----------read\n");
-	printk(KERN_NOTICE "-----------read\nf_ops:%lld\n", buf, *f_pos);
+	printk(KERN_NOTICE "-----------read\tf_ops:%lld\n", *f_pos);
 	struct scull_dev *dev = filep->private_data;
 	struct scull_qset *dptr;
 	int quantum = dev->quantum,qset = dev->qset;
 	int itemsize = quantum * qset;
 	int item, s_pos, q_pos,rest;
 	ssize_t retval = 0;
+	return 0;
 
 	//if(down_interruptible(&dev->sem))
 		//return -ERESTARTSYS;
@@ -193,7 +193,7 @@ ssize_t scull_write(struct file *filep,const char __user *buf,size_t count,loff_
 
 	out:
 	//up(&dev->sem);
-	printk(KERN_NOTICE "-----------write0000\n");
+	printk(KERN_NOTICE "-----------write count:%d\n", retval);
 	return retval;
 }
 

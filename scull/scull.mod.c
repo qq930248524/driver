@@ -28,7 +28,6 @@ __attribute__((section("__versions"))) = {
 	{ 0x8329e6f0, __VMLINUX_SYMBOL_STR(memset) },
 	{ 0x4f6b400b, __VMLINUX_SYMBOL_STR(_copy_from_user) },
 	{ 0x12da5bb2, __VMLINUX_SYMBOL_STR(__kmalloc) },
-	{ 0x4f8b5ddb, __VMLINUX_SYMBOL_STR(_copy_to_user) },
 	{ 0xccc348bf, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
 	{ 0xb17f404f, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
 	{ 0x37a0cba, __VMLINUX_SYMBOL_STR(kfree) },
@@ -42,4 +41,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "0CD911D3D45912F261FEC30");
+MODULE_INFO(srcversion, "B8CB03571C19DCF988AA7AD");

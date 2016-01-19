@@ -1,0 +1,1 @@
+cmd_/home/zjy/github/driver/demo_chr_dev/demo_chr_dev.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/zjy/github/driver/demo_chr_dev/demo_chr_dev.ko /home/zjy/github/driver/demo_chr_dev/demo_chr_dev.o /home/zjy/github/driver/demo_chr_dev/demo_chr_dev.mod.o
